@@ -11,16 +11,19 @@ class Rectangle < Drawing
 	end
 
 	def reset
-		@origin = rand(20) + 1 # y'know, in case of zero.
+		@origin = rand(9) + 1 # y'know, in case of zero.
 		@column = @origin
 		@line = @origin
+		write(0, 0, "Origin: #{@origin}")
+		refresh
 	end
 
 	def check_reset
 		if @line > @height
-			reset
 			sleep 1
 			clear
+			reset
+			sleep 1
 		end
 	end
 
@@ -39,8 +42,6 @@ class Rectangle < Drawing
 		else
 			if @column == @origin || @column == @width - 1
 				write(@line, @column, "+")
-			else
-				write(@line, @column, " ")
 			end
 		end
 		set_values
