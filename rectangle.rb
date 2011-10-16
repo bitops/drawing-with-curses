@@ -14,12 +14,24 @@ class Rectangle < Drawing
 		@line = 0
 	end
 
-	def	draw
+	def check_reset
 		if @line > @height
 			reset
 			sleep 3
 			clear
 		end
+	end
+
+	def set_values
+	  @column += 1
+		if @column % @width == 0
+			@line += 1
+			@column = 0
+		end	
+	end
+
+	def	draw
+		check_reset
 		if @line == 0 || @line == @height
 			write(@line, @column, "+")
 		else
@@ -29,11 +41,7 @@ class Rectangle < Drawing
 				write(@line, @column, " ")
 			end
 		end
-	  @column += 1
-		if @column % @width == 0
-			@line += 1
-			@column = 0
-		end	
+		set_values
 	end
 
 	def sleep_time
