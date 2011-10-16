@@ -43,8 +43,12 @@ class Drawing
 
 	def check_clear
 		unless clear_count.nil?
-			Curses.clear if @count % clear_count == 0
+			clear if @count % clear_count == 0
 		end
+	end
+
+	def clear
+		Curses.clear
 	end
   
  	def run 
