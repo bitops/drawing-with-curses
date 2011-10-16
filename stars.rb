@@ -4,7 +4,6 @@ class Stars < Drawing
 
 	def	draw
 		write(rand(30), rand(30* 2), "*")
-		sleep 0.02
 	end
 	
  	def clear_count

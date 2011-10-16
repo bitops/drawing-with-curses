@@ -24,6 +24,10 @@ class Drawing
   	Curses.refresh
   end
 
+	def sleep_time
+		0.02
+	end
+
 	def draw
 		raise 'create subclass and implement'
 	end
@@ -49,6 +53,7 @@ class Drawing
     		@count += 1
 				draw
 				refresh
+				sleep sleep_time
     		check_clear
       end
     end
