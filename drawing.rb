@@ -1,6 +1,7 @@
 require 'curses'
 
 class Drawing
+
   def write(line, column, text)
     Curses.setpos(line, column)
     Curses.addstr(text);
@@ -25,7 +26,7 @@ class Drawing
   end
 
 	def sleep_time
-		0.02
+		0.3
 	end
 
 	def draw
@@ -58,5 +59,6 @@ class Drawing
       end
     end
 	end
+
 end
 
