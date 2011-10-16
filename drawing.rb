@@ -48,6 +48,7 @@ class Drawing
       loop do
     		@count += 1
 				draw
+				refresh
     		check_clear
       end
     end
