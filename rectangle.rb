@@ -3,15 +3,17 @@ require File.join('.', 'drawing')
 class Rectangle < Drawing
 
 	def initialize
-		@column = 0
-		@line = 0
+		@origin = 0
+		@column = @origin
+		@line = @origin
 		@width = 20
 		@height = 10
 	end
 
 	def reset
-		@column = 0
-		@line = 0
+		@origin = rand(20) + 1 # y'know, in case of zero.
+		@column = @origin
+		@line = @origin
 	end
 
 	def check_reset
@@ -26,16 +28,16 @@ class Rectangle < Drawing
 	  @column += 1
 		if @column % @width == 0
 			@line += 1
-			@column = 0
+			@column = @origin
 		end	
 	end
 
 	def	draw
 		check_reset
-		if @line == 0 || @line == @height
+		if @line == @origin || @line == @height
 			write(@line, @column, "+")
 		else
-			if @column == 0 || @column == @width - 1
+			if @column == @origin || @column == @width - 1
 				write(@line, @column, "+")
 			else
 				write(@line, @column, " ")
