@@ -1,15 +1,6 @@
 #!/usr/bin/env ruby
 require 'curses'
 
-# reading
-# http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
-
-SHAPE = <<T
-***
-* *
-***
-T
-
 def write(line, column, text)
   Curses.setpos(line, column)
   Curses.addstr(text);
