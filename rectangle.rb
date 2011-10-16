@@ -19,7 +19,7 @@ class Rectangle < Drawing
 	def check_reset
 		if @line > @height
 			reset
-			sleep 3
+			sleep 1
 			clear
 		end
 	end
@@ -47,7 +47,7 @@ class Rectangle < Drawing
 	end
 
 	def sleep_time
-		0.02
+		0.01
 	end
 	
 end
