@@ -11,19 +11,22 @@ class Rectangle < Drawing
 	end
 
 	def reset
-		@origin = rand(9) + 1 # y'know, in case of zero.
+		@origin = rand(20) + 1 # y'know, in case of zero.
 		@column = @origin
 		@line = @origin
+		@width = 20 + @origin
+		@height = 10 + @origin
 		write(0, 0, "Origin: #{@origin}")
 		refresh
 	end
 
 	def check_reset
 		if @line > @height
-			sleep 1
+			wait = 0.5
+			sleep wait
 			clear
 			reset
-			sleep 1
+			sleep wait
 		end
 	end
 
@@ -48,7 +51,7 @@ class Rectangle < Drawing
 	end
 
 	def sleep_time
-		0.01
+		0.005
 	end
 	
 end
